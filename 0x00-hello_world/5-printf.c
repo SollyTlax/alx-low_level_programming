@@ -2,11 +2,7 @@
 /**
  * main - a program that prints a line using printf
  *
- * Description:You are not allowed to use the function puts
- * Your program should return 0
- * Your program should compile without warning when using the -Wall gcc option
- *
- * Return : 0 (Success)
+ * Return: 0 (Success)
  */
 int main(void)
 {
