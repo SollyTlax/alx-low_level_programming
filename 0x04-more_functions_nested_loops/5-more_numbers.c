@@ -1,4 +1,4 @@
-#inlcude "main.h"
+#include "main.h"
 /**
  * more_numbers - print 10 x more the numbers from 0 to 9
  *
