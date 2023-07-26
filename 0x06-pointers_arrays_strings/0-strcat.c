@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * strcat - Write a function that concatenates two strings.
+ * _strcat - Write a function that concatenates two strings.
  * @dest: string to be added on
  * @src: string used to append
  * Prototype: char *_strcat(char *dest, char *src);
@@ -10,15 +10,22 @@
  *
  * Return: dest
  */
-char *strcat(char *dest, const char *src)
+char *_strcat(char *dest, char *src)
 {
-	int index = 0, dest_len = 0;
+	int lengthD, lengthS;
 
-	while (dest[index++])
-		dest_len++;
+	lengthD = 0;
+	lengthS = 0;
 
-	for (index = 0; src[index]; index++)
-		dest[dest_len++] = src[index];
+	while (*(dest + lengthD) != '\0')
+		lengthD++;
 
+	while (*(src + lengthS) != '\0' && lengthD < 97)
+	{
+		*(dest + lengthD) = *(src + lengthS);
+		lengthD++;
+		lengthS++;
+	}
+	*(dest + lengthD) = '\0';
 	return (dest);
 }
