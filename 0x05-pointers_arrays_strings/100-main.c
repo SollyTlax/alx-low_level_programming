@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
+int _atoi(char *);
 
 /**
  * main - check the code
