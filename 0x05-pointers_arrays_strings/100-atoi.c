@@ -1,47 +1,44 @@
 #include "main.h"
-#include <stdlib.h>
+#include <stdio.h>
 /**
- * print_number - print an int numbers.
- * @n: number tested
- * Return: Always 0.
+ * _atoi - print the integer of a char.
+ * @s:  tested char
+ * Return: integer.
  */
-void print_number(int n)
+int _atoi(char *s)
 {
-	int i, j, digit, digits, power;
-	unsigned int temp, numchar, number;
+	unsigned int counter, i, j, k, length, num, l;
+	int aux;
 
-	digit = 0;
-	if (n < 0)
+	aux = 1;
+	counter = 0;
+	num = 0;
+
+	while (*(s + counter) != '\0')
+		counter++;
+	for (i = 0; i < counter; i++)
 	{
-		_putchar('-');
-		temp = -n;
+		if (*(s + i) <= '9' && *(s + i) >= '0')
+		break;
 	}
-	else
+	for (j = i; j < counter; j++)
 	{
-		temp = n;
+		if (!(*(s + j) <= '9' && *(s + j) >= '0'))
+			break;
 	}
 
-	number = temp;
-
-	while (number >= 10)
+	for (k = 0; k < i; k++)
 	{
-		number = number / 10;
-		digit++;
+		if (*(s + k) == '-')
+			aux = -aux;
 	}
-	digits = digit + 1;
-	power = 1;
-	i = 1;
-
-	while (i < digits)
+	length = j - i;
+	l = i;
+		while (length >= 1)
 	{
-		power = power * 10;
-		i++;
+		num = num * 10 + (*(s + l) - '0');
+		l++;
+		length--;
 	}
-	j = power;
-	while (j >= 1)
-	{
-		numchar = (temp / j) % 10;
-		_putchar(numchar + '0');
-		j = j / 10;
-	}
+	return (num * aux);
 }
