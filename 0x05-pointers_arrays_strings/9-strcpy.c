@@ -10,13 +10,19 @@
  */
 char *_strcpy(char *dest, const char *src)
 {
-	int index = 0;
-
-	while (src[index])
+	if (dest == NULL || src == NULL)
 	{
-		dest[index] = src[index];
-		index++;
+	printf("Error: Invalid pointers.\n");
+	return;
 	}
+	char *ordest = dest;
 
-	return (dest);
+	while (*src != '\0')
+	{
+	*dest = *src;
+	dest++;
+	src++;
+	}
+	dest = ('\0');
+	return (orDest);
 }
