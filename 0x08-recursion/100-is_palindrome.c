@@ -1,5 +1,4 @@
 #include "main.h"
-#include <string.h>
 /**
 *longitud - function that returns the power of number
 *@s: string
