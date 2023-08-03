@@ -1,47 +1,47 @@
 #include "main.h"
 #include <string.h>
 /**
- * strlen - obtains length of a
- * @a: string
- * @l: integer to count length
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int strlen(char *a, int l)
+*longitud - function that returns the power of number
+*@s: string
+*
+*Return: length of a string
+*/
+int longitud(char *s)
 {
-	if (*a == 0)
-		return (l - 1);
-	return (strlen(a + 1, l + 1));
-}
-/**
- * comparestr - compares string vs string reverse
- * @a: string
- * @l: length
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
+	int l = 0;
 
-int comparestr(char *a, int l)
-{
-	if (*a != *(a + l))
-		return (0);
-	else if (*a == 0)
-		return (1);
-	return (comparestr(a + 1, l - 2));
+	if (*s != '\0')
+	{
+		l++;
+		return (longitud(s + 1) + l);
+	}
+	return (l);
 }
 /**
- * is_palindrome - checks if a string is a palindrome
- * @s: string to evaluate
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ *comparar - function that returns the power of number
+ *@i: original number
+ *@l: counter to compare multiplication
+ *@s: string
+ *Return: square root
+ */
+int comparar(int i, int l, char *s)
+{
+	if (i >= l)
+		return (1);
+	else if (s[i] == s[l])
+		return (comparar(i + 1, l - 1, s));
+	else
+		return (0);
+}
+/**
+ *is_palindrome - return 1 if is number prime
+ *@s: number to evaluate
+ *Return: 1 or 0
  */
 int is_palindrome(char *s)
 {
-	int l;
+	int l = longitud(s);
+	int i = 0;
 
-	l = strlen(s, 0);
-	return (comparestr(s, l));
+	return (comparar(i, l - 1, s));
 }
