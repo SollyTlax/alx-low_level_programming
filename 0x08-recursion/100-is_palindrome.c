@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 /**
  * strlen - obtains length of a
  * @a: string
