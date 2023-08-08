@@ -16,7 +16,7 @@ char *argstostr(int ac, char **av)
 	{
 	return (NULL);
 	}
-	size_t total_len = 0;
+	int total_len = 0;
 
 	for (int i = 0; i < ac; i++)
 	{
@@ -33,8 +33,8 @@ char *argstostr(int ac, char **av)
 
 	if (result == NULL)
 	return (NULL);
-
-	int pos = 0;
+	
+	int pos =0 ;
 
 	for (int i = 0; i  < ac; i++)
 	{
