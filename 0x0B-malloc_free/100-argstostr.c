@@ -8,44 +8,37 @@
  * @av: input string
  * Return: NULL if ac == 0 or av == NULL
  * Returns a pointer to a new string, or NULL if it fails
- * Each argument should be followed by a \n in the new string
  */
 char *argstostr(int ac, char **av)
 {
+	char *str;
+	int arg, byte, index, size = ac;
+
 	if (ac == 0 || av == NULL)
+		return (NULL);
+
+	for (arg = 0; arg < ac; arg++)
 	{
-	return (NULL);
+		for (byte = 0; av[arg][byte]; byte++)
+			size++;
 	}
-	int total_len = 0;
 
-	for (int i = 0; i < ac; i++)
+	str = malloc(sizeof(char) * size + 1);
+
+	if (str == NULL)
+		return (NULL);
+
+	index = 0;
+
+	for (arg = 0; arg < ac; arg++)
 	{
-		int j = 0;
+		for (byte = 0; av[arg][byte]; byte++)
+			str[index++] = av[arg][byte];
 
-		while (av[i][j] != '\0')
-		{
-		total_len++;
-		j++;
-		}
-		total_len++;
+		str[index++] = '\n';
 	}
-	char *result = malloc(total_len + 1);
 
-	if (result == NULL)
-	return (NULL);
-	
-	int pos =0 ;
+	str[size] = '\0';
 
-	for (int i = 0; i  < ac; i++)
-	{
-		int j = 0;
-
-		while (av[i][j] != '\0')
-		{
-		result[pos++] = av[i][j++];
-		}
-		result[pos] = '\0';
-
-	}
-	return (result);
+	return (str);
 }
