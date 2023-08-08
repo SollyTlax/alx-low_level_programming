@@ -1,6 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
-
+#include <stddef.h>
 /*
  * File: main.h
  * Desc: Header file containing the prototypes of all functions
