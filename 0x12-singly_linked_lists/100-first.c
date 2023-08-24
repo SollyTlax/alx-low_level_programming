@@ -1,6 +1,5 @@
+#include "lists.h"
 #include <stdio.h>
-
-void befor_main(void) __attribute__ ((constructor));
 /**
  * before_main - Print a specific message before the main function is executed.
  */
