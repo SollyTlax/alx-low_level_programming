@@ -25,9 +25,8 @@ listint_t *find_listint_loop(listint_t *head);
  * @n: integer
  * @next: points to the next node
  *
- * Description: singly linked list node structure
- * for Holberton project
  */
+
 typedef struct listint_s
 {
 	int n;
