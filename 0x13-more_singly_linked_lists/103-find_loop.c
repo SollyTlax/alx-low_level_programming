@@ -1,4 +1,7 @@
 #include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 /**
  * find_listint_loop - Finds the loop in a linked list
  * @head: Pointer to the head of the linked list
