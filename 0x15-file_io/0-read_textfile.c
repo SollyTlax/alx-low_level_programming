@@ -1,6 +1,11 @@
 #include "main.h"
 #include <stdlib.h>
-ii
+#include <stdio.h>
+#include <stdlib.h>
+#include <unist.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 /**
  * read_textfile - Reads a text file and prints it to standard output
  * @filename: The name of the file to read
