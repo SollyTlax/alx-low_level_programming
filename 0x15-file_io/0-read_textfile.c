@@ -16,26 +16,39 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t o_file, r_file, w_file;
+	ssize_t f_read, f_write, f_close;
+	int f_open;
 	char *buffer;
 
 	if (filename == NULL)
 		return (0);
-	buffer = malloc(sizeof(char) * letters + 1);
+
+	buffer = malloc(sizeof(char) * letters);
 
 	if (buffer == NULL)
-		return (0);
-	0_file = open(filename, O_RDONLY);
+	{
+		return (-1);
+	}
+	f_open = open(filename, O_RDONLY);
 
-	if (o_file == -1)
-		return (0);
+	if (f_open == -1)
+		return (-1);
 
-	r_file = read(o_file, buffer, letters);
-	w_file = write(STDOUT_FILENO, buffer, r_file);
+	f_read = read(f_open, buffer, letters);
+	if (f_read == -1)
+		return (-1);
 
-		free(buffer);
-		return (0);
+	f_write = write(STDOUT_FILENO, buffer, f_read);
+	if (f_write == -1)
+		return (-1);
+	f_close = close(f_open);
 
-	return (w_file);
+	if (f_close == -1)
+		return (-1);
+
+	/*	free(buffer);	*/
+	/*	return (0);	*/
+
+	return (f_read);
 
 }
